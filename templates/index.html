@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>TradingBot</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to TradingBot</h1>
+        <div id="crypto-data">
+            <h2>Cryptocurrency Data</h2>
+            <button onclick="fetchCryptoData()">Fetch Crypto Data</button>
+            <table id="crypto-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Current Price</th>
+                        <th>24h Change</th>
+                        <th>Market Cap</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="stock-data">
+            <h2>Stock Data</h2>
+            <button onclick="fetchStockData()">Fetch Stock Data</button>
+            <table id="stock-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Current Price</th>
+                        <th>Day High</th>
+                        <th>Day Low</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html> 
