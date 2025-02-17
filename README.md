@@ -14,6 +14,9 @@ TradingBot is a web application designed to fetch and analyze live cryptocurrenc
   - `fetch_crypto.py`: Script for fetching cryptocurrency data.
   - `fetch_stocks.py`: Script for fetching stock data.
   - `config.py`: Configuration file for API endpoints and default stock tickers.
+- `static/`: Contains static files like CSS and JavaScript.
+- `templates/`: Contains HTML templates for the web interface.
+- `logs/`: Directory where log files are stored.
 - `main.py`: The main entry point for the FastAPI application.
 - `requirements.txt`: Lists the dependencies required for the project.
 
@@ -58,8 +61,12 @@ TradingBot is a web application designed to fetch and analyze live cryptocurrenc
 
 ## Logging
 
-The project includes logging for successful API calls and errors, which are printed to the console for easy debugging and monitoring.
+The project includes detailed logging for successful API calls and errors. Logs are written to `logs/app.log` for easy debugging and monitoring. Ensure the `logs` directory exists to capture log files.
 
 ## Documentation
 
 Each function in the scripts is documented with docstrings. You can view these by inspecting the code or using tools like `pydoc`.
+
+## Error Handling
+
+The application includes error handling to manage exceptions during data fetching. Errors are logged, and a user-friendly error message is returned by the API.
