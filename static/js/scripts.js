@@ -180,7 +180,11 @@ function updateTable(tableId, data, columns) {
     data.Data.forEach(entry => {
         const row = tableBody.insertRow();
         columns.forEach(column => {
-            row.insertCell().textContent = entry[column];
+            let value = entry[column];
+            if (typeof value === 'number') {
+                value = value.toFixed(2); // Format numbers to two decimal places
+            }
+            row.insertCell().textContent = value;
         });
     });
 }
