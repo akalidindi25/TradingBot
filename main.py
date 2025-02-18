@@ -168,14 +168,11 @@ async def run_trend_follower():
         logging.debug(f"Cleaned signals for JSON: {signals.head()}")
         logging.info("Successfully ran trend follower strategy")
         
-        # Include relevant data in the response
-        relevant_data = data[['timestamp', 'price', 'volume']].head().to_dict(orient='records')
+        # Return data with moving averages
+        data_with_moving_averages = data[['timestamp', 'price', 'volume', 'short_mavg', 'long_mavg']].head().to_dict(orient='records')
         
         return {
-            "Data": relevant_data,
-            "Number of Trades": 20,
-            "Final Portfolio Value": 10500,
-            "Total Profit/Loss": 500
+            "Data": data_with_moving_averages
         }
     except Exception as e:
         logging.error(f"Error running trend follower strategy: {e}")
@@ -196,14 +193,11 @@ async def run_mean_reversion():
         logging.debug(f"Cleaned signals for JSON: {signals.head()}")
         logging.info("Successfully ran mean reversion strategy")
         
-        # Include relevant data in the response
-        relevant_data = data[['timestamp', 'price', 'volume']].head().to_dict(orient='records')
+        # Return cleaned signals for JSON
+        cleaned_signals = signals[['price', 'mean', 'std', 'z_score', 'signal', 'positions', 'buy_signal', 'sell_signal']].head().to_dict(orient='records')
         
         return {
-            "Data": relevant_data,
-            "Number of Trades": 15,
-            "Final Portfolio Value": 10200,
-            "Total Profit/Loss": 200
+            "Data": cleaned_signals
         }
     except Exception as e:
         logging.error(f"Error running mean reversion strategy: {e}")

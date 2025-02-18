@@ -82,8 +82,7 @@ async function runTrendFollower() {
     if (result.error) {
         document.getElementById('strategy-results').textContent = result.error;
     } else {
-        renderChart(result);
-        updateTable('strategy-table', result);
+        updateTable('strategy-table', result, ['timestamp', 'price', 'volume', 'short_mavg', 'long_mavg']);
     }
 }
 
@@ -95,8 +94,7 @@ async function runMeanReversion() {
     if (result.error) {
         document.getElementById('strategy-results').textContent = result.error;
     } else {
-        renderChart(result);
-        updateTable('strategy-table', result);
+        updateTable('strategy-table', result, ['price', 'mean', 'std', 'z_score', 'signal', 'positions', 'buy_signal', 'sell_signal']);
     }
 }
 
