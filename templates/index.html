@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/styles.css">
     <title>TradingBot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,14 +14,7 @@
             <h2>Cryptocurrency Data</h2>
             <button onclick="fetchCryptoData()">Fetch Crypto Data</button>
             <table id="crypto-table" class="data-table">
-                <thead>
-                    <tr>
-                        <th>Symbol</th>
-                        <th>Current Price</th>
-                        <th>24h Change</th>
-                        <th>Market Cap</th>
-                    </tr>
-                </thead>
+                <thead></thead>
                 <tbody></tbody>
             </table>
         </div>
@@ -28,16 +22,31 @@
             <h2>Stock Data</h2>
             <button onclick="fetchStockData()">Fetch Stock Data</button>
             <table id="stock-table" class="data-table">
-                <thead>
-                    <tr>
-                        <th>Ticker</th>
-                        <th>Current Price</th>
-                        <th>Day High</th>
-                        <th>Day Low</th>
-                    </tr>
-                </thead>
+                <thead></thead>
                 <tbody></tbody>
             </table>
+        </div>
+        <div id="rl-agent">
+            <h2>Reinforcement Learning Agent</h2>
+            <button onclick="trainRLAgent()">Train RL Agent</button>
+            <button onclick="evaluateRLAgent()">Evaluate RL Agent</button>
+            <table id="rl-agent-table" class="data-table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="strategies">
+            <h2>Trading Strategies</h2>
+            <button onclick="runTrendFollower()">Run Trend Follower</button>
+            <button onclick="runMeanReversion()">Run Mean Reversion</button>
+            <table id="strategy-table" class="data-table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="chart-container" style="display: none;">
+            <h2>Strategy Results</h2>
+            <canvas id="strategyChart"></canvas>
         </div>
     </div>
     <script src="/static/js/scripts.js"></script>

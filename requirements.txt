@@ -3,4 +3,10 @@ pandas
 yfinance
 fastapi
 uvicorn
-jinja2 
+jinja2
+stable-baselines3
+gymnasium
+numpy
+matplotlib
+plotly
+# Add any other dependencies your project requires 

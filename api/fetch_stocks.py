@@ -34,6 +34,17 @@ def fetch_stock_data(tickers=DEFAULT_STOCK_TICKERS):
         logging.error(f"Error fetching stock data: {e}")
         return pd.DataFrame()
 
+def fetch_historical_stock_data(tickers=DEFAULT_STOCK_TICKERS, period='1y'):
+    try:
+        data = yf.download(tickers, period=period, interval='1d')
+        data.reset_index(inplace=True)
+        data.rename(columns={'Date': 'timestamp', 'Close': 'price', 'Volume': 'volume'}, inplace=True)
+        logging.info("Successfully fetched historical stock data.")
+        return data[['timestamp', 'price', 'volume']]
+    except Exception as e:
+        logging.error(f"Error fetching historical stock data: {e}")
+        return pd.DataFrame()
+
 # Example usage
 if __name__ == "__main__":
     print(fetch_stock_data()) 
